@@ -1,4 +1,4 @@
-echo "# Social Video Downloader
+## Social Video Downloader
 
 Social Video Downloader is a simple web application to fetch and download MP4 video or audio from popular social media platforms like YouTube, TikTok, Instagram, Facebook, and more.
 
