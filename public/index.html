@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Video Downloader</title>
+    <meta
+      name="description"
+      content="Download MP4 videos and audio from YouTube, TikTok, Instagram, Facebook, and other social platforms quickly and easily."
+    />
+    <meta
+      name="keywords"
+      content="video downloader, youtube, tiktok, mp4, free download, social media, audio"
+    />
+    <meta name="robots" content="index, follow" />
+    <!-- <link rel="canonical" href="https://yourdomain.com/en" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white p-6">
+    <!-- 🔳 AD SLOT LEFT (Desktop only) -->
+    <!-- 
+    <div class="fixed left-0 top-20 hidden lg:block w-[160px] text-center z-10">
+      <div class="border border-dashed border-gray-400 p-2 rounded bg-white dark:bg-gray-800">
+        <p class="text-xs text-gray-500">[AD SLOT LEFT]</p>
+      </div>
+    </div>
+    -->
+
+    <!-- 🔳 AD SLOT RIGHT (Desktop only) -->
+    <!-- 
+    <div class="fixed right-0 top-20 hidden lg:block w-[160px] text-center z-10">
+      <div class="border border-dashed border-gray-400 p-2 rounded bg-white dark:bg-gray-800">
+        <p class="text-xs text-gray-500">[AD SLOT RIGHT]</p>
+      </div>
+    </div>
+    -->
+
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-3xl font-bold mb-4">
+        🎥 MP4 Downloader from Social Media
+      </h1>
+
+      <form id="download-form" class="space-y-4">
+        <input
+          type="text"
+          id="video-url"
+          placeholder="Paste video link here..."
+          class="w-full p-3 rounded border dark:bg-gray-800 dark:border-gray-700"
+          required
+        />
+        <button
+          type="submit"
+          class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+        >
+          Fetch Video Info
+        </button>
+
+        <!-- 🔄 Loading Spinner -->
+        <div id="loading" class="text-center hidden">
+          <svg
+            class="animate-spin h-6 w-6 text-blue-600 mx-auto mt-2"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              class="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              stroke-width="4"
+            ></circle>
+            <path
+              class="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v8H4z"
+            ></path>
+          </svg>
+          <p class="text-sm text-blue-500 mt-2">Fetching video info...</p>
+        </div>
+      </form>
+
+      <div id="result" class="mt-6 hidden space-y-6 text-left">
+        <div class="text-center">
+          <img id="thumbnail" class="w-full max-w-lg mx-auto rounded shadow" />
+          <h2 id="title" class="text-xl font-semibold mt-4"></h2>
+          <p id="uploader" class="text-sm text-gray-400"></p>
+        </div>
+
+        <div>
+          <h3 class="text-green-400 font-bold mb-2">🧩 Available Formats:</h3>
+
+          <div id="video-section" class="mb-6">
+            <h4 class="text-lg font-semibold mb-2">🎬 Video:</h4>
+            <table class="w-full text-sm border border-gray-600 text-left">
+              <thead class="bg-gray-200 dark:bg-gray-700">
+                <tr>
+                  <th class="p-2 border">Resolution</th>
+                  <th class="p-2 border">Size</th>
+                  <th class="p-2 border">Format</th>
+                  <th class="p-2 border text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody
+                id="video-formats"
+                class="bg-white dark:bg-gray-800"
+              ></tbody>
+            </table>
+          </div>
+
+          <div id="audio-section" class="mb-6">
+            <h4 class="text-lg font-semibold mb-2">🎧 Audio:</h4>
+            <table class="w-full text-sm border border-gray-600 text-left">
+              <thead class="bg-gray-200 dark:bg-gray-700">
+                <tr>
+                  <th class="p-2 border">Format</th>
+                  <th class="p-2 border">Size</th>
+                  <th class="p-2 border text-center">Download</th>
+                </tr>
+              </thead>
+              <tbody
+                id="audio-formats"
+                class="bg-white dark:bg-gray-800"
+              ></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="error-msg" class="mt-6 text-red-500 hidden"></div>
+
+      <!-- 🔳 AD SLOT ABOVE FOOTER -->
+      <!-- 
+      <div class="mt-10 text-center border border-dashed border-gray-400 p-4 rounded bg-white dark:bg-gray-800">
+        <p class="text-sm text-gray-500">[AD SLOT - ABOVE FOOTER]</p>
+      </div>
+      -->
+
+      <footer
+        class="mt-10 text-xs text-center text-gray-500 dark:text-gray-400"
+      >
+        <hr class="my-4 border-gray-300 dark:border-gray-600" />
+        <section
+          class="text-sm leading-relaxed text-gray-700 dark:text-gray-400 text-left max-w-3xl mx-auto space-y-4"
+        >
+          <p>
+            <strong class="text-gray-900 dark:text-white">Disclaimer:</strong
+            ><br />
+            This service is provided to help users download videos from social
+            media platforms. We do <strong>not store</strong>,
+            <strong>host</strong>, or <strong>distribute</strong> any content on
+            our servers. All videos are fetched directly from their respective
+            sources.
+          </p>
+          <p>
+            Usage of this service is the
+            <strong>user's sole responsibility</strong>. We are not responsible
+            for copyright violations or legal issues.
+            <em
+              >Please use this service responsibly and according to your local
+              laws.</em
+            >
+          </p>
+          <p>
+            All content copyrights belong to their respective owners. By using
+            this tool, you agree to only download content you own or have
+            explicit permission for.
+          </p>
+          <p>
+            Violations of source platform terms are solely the user's
+            responsibility.
+          </p>
+          <div class="pt-2">
+            <a href="/terms.html" class="text-blue-400 hover:underline mr-2"
+              >Terms</a
+            >
+            |
+            <a href="/privacy.html" class="text-blue-400 hover:underline ml-2"
+              >Privacy Policy</a
+            >
+          </div>
+        </section>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

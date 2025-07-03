@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Video Downloader</title>
+    <meta
+      name="description"
+      content="Unduh video dan audio MP4 dari YouTube, TikTok, Instagram, Facebook, dan platform sosial lainnya secara gratis dan mudah."
+    />
+    <meta
+      name="keywords"
+      content="download video, tiktok, youtube, mp4, downloader, audio, sosial media, gratis"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yourdomain.com/" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white p-6">
+    <div class="flex justify-center gap-4">
+      <!-- 🔹 Iklan Kiri -->
+      <aside class="hidden lg:block w-60">
+        <div
+          class="sticky top-10 border border-dashed border-gray-400 p-3 rounded text-center"
+        >
+          <p class="text-xs text-gray-500">[Iklan Kiri – 160x600]</p>
+        </div>
+      </aside>
+
+      <!-- 🔸 Konten Utama -->
+      <main class="max-w-3xl w-full mx-auto">
+        <h1 class="text-3xl font-bold mb-4 text-center">
+          🎥 MP4 Downloader dari Sosial Media
+        </h1>
+
+        <form id="download-form" class="space-y-4">
+          <input
+            type="text"
+            id="video-url"
+            placeholder="Tempel link video di sini..."
+            class="w-full p-3 rounded border dark:bg-gray-800 dark:border-gray-700"
+            required
+          />
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          >
+            Ambil Info Video
+          </button>
+        </form>
+
+        <!-- 🔹 Iklan Tengah -->
+        <div
+          class="my-6 text-center border border-dashed border-gray-400 p-4 rounded"
+        >
+          <p class="text-sm text-gray-500">[Iklan Tengah – 728x90 / 300x250]</p>
+        </div>
+
+        <!-- 📦 Hasil Video -->
+        <div id="result" class="mt-6 hidden space-y-6 text-left">
+          <div class="text-center">
+            <img
+              id="thumbnail"
+              class="w-full max-w-lg mx-auto rounded shadow"
+            />
+            <h2 id="title" class="text-xl font-semibold mt-4"></h2>
+            <p id="uploader" class="text-sm text-gray-400"></p>
+          </div>
+
+          <div>
+            <h3 class="text-green-400 font-bold mb-2">🧩 Format Tersedia:</h3>
+
+            <div id="video-section" class="mb-6">
+              <h4 class="text-lg font-semibold mb-2">🎬 Video:</h4>
+              <table class="w-full text-sm border border-gray-600 text-left">
+                <thead class="bg-gray-200 dark:bg-gray-700">
+                  <tr>
+                    <th class="p-2 border">Resolusi</th>
+                    <th class="p-2 border">Ukuran</th>
+                    <th class="p-2 border">Format</th>
+                    <th class="p-2 border text-center">Unduh</th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="video-formats"
+                  class="bg-white dark:bg-gray-800"
+                ></tbody>
+              </table>
+            </div>
+
+            <div id="audio-section" class="mb-6">
+              <h4 class="text-lg font-semibold mb-2">🎧 Audio:</h4>
+              <table class="w-full text-sm border border-gray-600 text-left">
+                <thead class="bg-gray-200 dark:bg-gray-700">
+                  <tr>
+                    <th class="p-2 border">Format</th>
+                    <th class="p-2 border">Ukuran</th>
+                    <th class="p-2 border text-center">Unduh</th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="audio-formats"
+                  class="bg-white dark:bg-gray-800"
+                ></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🔹 Iklan Bawah -->
+        <div
+          class="mt-8 text-center border border-dashed border-gray-400 p-4 rounded"
+        >
+          <p class="text-sm text-gray-500">[Iklan Footer – 728x90]</p>
+        </div>
+
+        <!-- ✅ Footer Lengkap -->
+        <footer
+          class="mt-10 text-xs text-center text-gray-500 dark:text-gray-400"
+        >
+          <hr class="my-4 border-gray-300 dark:border-gray-600" />
+          <section
+            class="text-sm leading-relaxed text-gray-700 dark:text-gray-400 text-left space-y-4"
+          >
+            <p>
+              <strong class="text-gray-900 dark:text-white">Disclaimer:</strong
+              ><br />
+              Layanan ini disediakan untuk memudahkan pengguna dalam mengunduh
+              video dari berbagai platform sosial media. Kami
+              <strong>tidak menyimpan</strong>,
+              <strong>tidak mengelola</strong>, dan
+              <strong>tidak mendistribusikan</strong> konten video apa pun di
+              server kami. Seluruh konten diunduh langsung dari sumber resmi
+              masing-masing platform.
+            </p>
+
+            <p>
+              Segala bentuk penggunaan layanan ini merupakan
+              <strong>tanggung jawab pengguna</strong>. Kami tidak bertanggung
+              jawab atas pelanggaran hak cipta atau hukum yang dilakukan oleh
+              pengguna.
+              <em
+                >Gunakan layanan ini secara bijak dan sesuai hukum yang berlaku
+                di wilayah Anda.</em
+              >
+            </p>
+
+            <p>
+              Seluruh hak cipta konten tetap dimiliki oleh masing-masing pemilik
+              aslinya. Dengan menggunakan layanan ini, Anda menyatakan hanya
+              akan mengunduh konten yang Anda miliki atau memiliki izin resmi.
+            </p>
+
+            <p>
+              Pelanggaran terhadap syarat platform sumber adalah tanggung jawab
+              pengguna sepenuhnya.
+            </p>
+
+            <div class="pt-2">
+              <a href="/terms.html" class="text-blue-400 hover:underline mr-2"
+                >Syarat & Ketentuan</a
+              >
+              |
+              <a href="/privacy.html" class="text-blue-400 hover:underline ml-2"
+                >Kebijakan Privasi</a
+              >
+            </div>
+          </section>
+        </footer>
+      </main>
+
+      <!-- 🔹 Iklan Kanan -->
+      <aside class="hidden lg:block w-60">
+        <div
+          class="sticky top-10 border border-dashed border-gray-400 p-3 rounded text-center"
+        >
+          <p class="text-xs text-gray-500">[Iklan Kanan – 160x600]</p>
+        </div>
+      </aside>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
